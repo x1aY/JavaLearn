@@ -1,0 +1,12 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-11",
+            "path": "D:\\jdk11",
+            "default": true
+        }
+    ],
+    "java.jdt.ls.java.home": "D:\\jdk11"
+}
