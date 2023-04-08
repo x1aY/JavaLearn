@@ -1,12 +1,14 @@
 package leetcode.LeetcodeHot100.AA_fst50;
 
+import java.util.ArrayDeque;
 import java.util.Comparator;
+import java.util.Deque;
 
 public class AR_trap_42 {
 
     public static void main(String[] args) {
         AR_trap_42 solution = new AR_trap_42();
-        solution.trap(new int[] { 4, 2, 0, 3, 2, 5 });
+        solution.trap(new int[] { 4,2,0,3,2,5 });
     }
 
     // https://programmercarl.com/0042.%E6%8E%A5%E9%9B%A8%E6%B0%B4.html#%E5%8D%95%E8%B0%83%E6%A0%88%E8%A7%A3%E6%B3%95
@@ -47,6 +49,26 @@ public class AR_trap_42 {
         for (int i = left + 1; i < right; i++)
             minus += height[i];
         return (right - left - 1) * (height[left] > height[right] ? height[right] : height[left]) - minus;
+    }
+
+    // 单调栈
+    public int trap1(int[] hList) {
+        Deque<Integer> stack = new ArrayDeque<>();
+        int ans = 0, len = hList.length;
+        for (int i = 0; i < len; i++) {
+            while (!stack.isEmpty() && hList[i] > hList[stack.peek()]) {
+                int curr = stack.pop();
+                // 直接弹出，不需要哨兵
+                if(stack.isEmpty())
+                    break;
+                int left = stack.peek();
+                int h = Math.min(hList[left], hList[i]) - hList[curr];
+                int w = i - left - 1;
+                ans += h * w;
+            }
+            stack.push(i);
+        }
+        return ans;
     }
 
 }

@@ -16,6 +16,7 @@ public class L_InorderTravel_94 {
         ans.inorderTraversal(root);
     }
 
+    // https://leetcode.cn/problems/binary-tree-inorder-traversal/solution/yan-se-biao-ji-fa-yi-chong-tong-yong-qie-jian-ming/
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> travel = new ArrayList<>();
         Deque<StackNode> stack = new ArrayDeque<>();
