@@ -29,7 +29,7 @@ public class TreeNode {
         return String.valueOf(this.val);
     }
 
-        /**
+    /**
      * 基于层序遍历的序列，使用队列生成一棵二叉树
      */
     public static TreeNode GenTree(int[] list) {
