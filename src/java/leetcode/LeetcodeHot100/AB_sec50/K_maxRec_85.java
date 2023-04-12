@@ -12,10 +12,6 @@ public class K_maxRec_85 {
     }
 
     public int maximalRectangle(char[][] matrix) {
-        char tgt = '1';
-        
-
-
 
 
         return 0;

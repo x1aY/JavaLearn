@@ -1,6 +1,8 @@
 package myLab.labComn;
 
 import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Objects;
 import java.util.Queue;
 
 public class TreeNode {
@@ -25,6 +27,31 @@ public class TreeNode {
     @Override
     public String toString() {
         return String.valueOf(this.val);
+    }
+
+        /**
+     * 基于层序遍历的序列，使用队列生成一棵二叉树
+     */
+    public static TreeNode GenTree(int[] list) {
+        Deque<TreeNode> queue = new ArrayDeque<>();
+        TreeNode root = new TreeNode(list[0]);
+        queue.add(root);
+
+        int idx = 1, listLen = list.length;
+        while (idx < listLen) {
+            TreeNode curr = queue.poll();
+            // 添加左子树
+            if (list[idx++] != LEEF) {
+                Objects.requireNonNull(curr).left = new TreeNode(list[idx - 1]);
+                queue.add(curr.left);
+            }
+            // 添加右子树
+            if (idx < listLen && list[idx++] != LEEF) {
+                Objects.requireNonNull(curr).right = new TreeNode(list[idx - 1]);
+                queue.add(curr.right);
+            }
+        }
+        return root;
     }
 
     /**
