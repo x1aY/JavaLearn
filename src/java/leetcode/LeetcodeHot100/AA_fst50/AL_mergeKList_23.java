@@ -46,6 +46,7 @@ public class AL_mergeKList_23 {
         return virtualHead.next;
     }
 
+    // https://leetcode.cn/problems/merge-k-sorted-lists/solution/he-bing-kge-pai-xu-lian-biao-by-leetcode-solutio-2/
     class Solution1 {
         public ListNode mergeKLists(ListNode[] lists) {
             PriorityQueue<ListNode> pq = new PriorityQueue<>((a, b) -> a.val - b.val);
