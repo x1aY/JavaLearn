@@ -11,10 +11,40 @@ public class QuickSort {
         QuickSort ans = new QuickSort();
         List<Integer> list = Arrays.stream(nums).boxed().collect(Collectors.toList());
         list.sort((a, b) -> a - b);
-        ans.quickSort(nums, 0, nums.length - 1);
+        ans.quickSort1(nums, 0, nums.length - 1);
         System.out.println(nums.toString());
     }
 
+    public void quickSort1(int[] ListNodes, int left, int right) {
+        if (left >= right)
+            return;
+        int center = partition(ListNodes, left, right);
+        quickSort(ListNodes, left, center - 1);
+        quickSort(ListNodes, center + 1, right);
+    }
+
+    public int partition1(int[] list, int left, int right) {
+        int val = list[left];
+        int i = left, j = right;
+        while (i < j) {
+            while (i < j && list[j] >= val)
+                j--;
+            swap1(list, i, j);
+            while (i < j && list[i] <= val)
+                i++;
+            swap1(list, i, j);
+        }
+        list[i] = val;
+        return i;
+    }
+
+    public void swap1(int[] list, int a, int b) {
+        list[a] = list[a] ^ list[b];
+        list[b] = list[a] ^ list[b];
+        list[a] = list[a] ^ list[b];
+    }
+
+    
     public void quickSort(int[] nums, int left, int right) {
         if (left >= right)
             return;
@@ -46,5 +76,4 @@ public class QuickSort {
         nums[fstIdx] = nums[secIdx];
         nums[secIdx] = temp;
     }
-
 }
