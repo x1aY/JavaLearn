@@ -3,10 +3,10 @@
     "java.configuration.updateBuildConfiguration": "automatic",
     "java.configuration.runtimes": [
         {
-            "name": "JavaSE-11",
-            "path": "D:\\jdk11",
+            "name": "Java-8",
+            "path": "D:\\Jdk8\\jdk8u231",
             "default": true
         }
     ],
-    "java.jdt.ls.java.home": "D:\\jdk11"
+    "java.jdt.ls.java.home": "D:\\Jdk8\\jdk8u231"
 }
