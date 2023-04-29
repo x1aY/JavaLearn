@@ -21,7 +21,7 @@ public class Coord {
 
     @Override
     public String toString() {
-        return "x=" + String.valueOf(this.x) + ", y=" + String.valueOf(this.y);
+        return "x=" + this.x + ", y=" + this.y;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class Coord {
 
     public static void main(String[] args) {
         // 顺时针
-        Map<Coord, Coord> clockwiseDirMap = new HashMap<>() {
+        Map<Coord, Coord> clockwiseDirMap = new HashMap<Coord, Coord>() {
             {
                 put(new Coord(0, 1), new Coord(1, 0));
                 put(new Coord(1, 0), new Coord(0, -1));

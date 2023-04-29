@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class B_SpiralOrder_54 {
 
-    public static Map<Coord, Coord> dirMap = new HashMap<>() {
+    public static Map<Coord, Coord> dirMap = new HashMap<Coord, Coord>() {
         {
             put(new Coord(0, 1), new Coord(1, 0));
             put(new Coord(1, 0), new Coord(0, -1));
@@ -33,7 +33,7 @@ public class B_SpiralOrder_54 {
 
         @Override
         public String toString() {
-            return "x=" + String.valueOf(this.x) + ", y=" + String.valueOf(this.y);
+            return "x=" + this.x + ", y=" + this.y;
         }
 
         @Override

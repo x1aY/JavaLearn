@@ -22,7 +22,7 @@ public class Generic {
 
         @Override
         public String toString() {
-            return "code:" + String.valueOf(code) + ", msg:" + msg + ", data: " + data.toString();
+            return "code:" + code + ", msg:" + msg + ", data: " + data.toString();
         }
     }
 
@@ -92,7 +92,7 @@ public class Generic {
         public void gsonTypeToken(String json) {
 
             // Gson：
-            TypeToken<Result<String>> gsToken = new TypeToken<>() {
+            TypeToken<Result<String>> gsToken = new TypeToken<Result<String>>() {
             };
             Type gsonType = gsToken.getType();
             System.out.println(gson.fromJson(json, gsonType).toString());
@@ -102,11 +102,11 @@ public class Generic {
              * class MyTypeToken$0 extends MyTypeToken<String>{}
              * MyTypeToken<String> sToken = new MyTypeToken$0();
              */
-            MyTypeToken<Result<String>> myTypeToken = new MyTypeToken<>() {
+            MyTypeToken<Result<String>> myTypeToken = new MyTypeToken<Result<String>>() {
             };
             Type mType = myTypeToken.getType();
             System.out.println(mType.getTypeName() +
-                    ", equals with gson Type:" + String.valueOf(mType.getTypeName().equals(gsonType.getTypeName())));
+                    ", equals with gson Type:" + mType.getTypeName().equals(gsonType.getTypeName()));
         }
 
         public abstract class MyTypeToken<T> {
@@ -140,7 +140,7 @@ public class Generic {
             System.out.println(mType1.getTypeName());
 
             // Result<List<obj>>
-            TypeToken<Result<List<String>>> gsToken2 = new TypeToken<>() { };
+            TypeToken<Result<List<String>>> gsToken2 = new TypeToken<Result<List<String>>>() { };
             Type gsonType2 = gsToken2.getType();
             System.out.println("gson Type: "+gsonType2.getTypeName());
 

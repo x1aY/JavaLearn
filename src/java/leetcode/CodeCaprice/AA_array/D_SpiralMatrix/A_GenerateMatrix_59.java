@@ -1,13 +1,9 @@
 package leetcode.CodeCaprice.AA_array.D_SpiralMatrix;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 public class A_GenerateMatrix_59 {
-    public static Map<Coord, Coord> clockwiseDirMap = new HashMap<>() {
+    public static Map<Coord, Coord> clockwiseDirMap = new HashMap<Coord, Coord>() {
         {
             put(new Coord(0, 1), new Coord(1, 0));
             put(new Coord(1, 0), new Coord(0, -1));
@@ -63,7 +59,7 @@ public class A_GenerateMatrix_59 {
 
         @Override
         public String toString() {
-            return "x=" + String.valueOf(this.x) + ", y=" + String.valueOf(this.y);
+            return "x=" + this.x + ", y=" + this.y;
         }
 
         @Override
@@ -87,7 +83,7 @@ public class A_GenerateMatrix_59 {
     public static void main(String[] args) {
         int n = 3;
         int[][] matrix = generateMatrix(n);
-        System.out.println(matrix);
+        System.out.println(Arrays.deepToString(matrix));
 
     }
 
