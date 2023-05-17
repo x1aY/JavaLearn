@@ -59,14 +59,14 @@ public class TreeNode {
      * </p>
      * 叶子节点用TreeNode.LEEF表示
      */
-    public static TreeNode GenBTree(int[] valWithOrder, String order) {
+    public static TreeNode GenBTreeByPreOrder(int[] valWithOrder, String order) {
         Queue<Integer> valQueue = new ArrayDeque<>();
         for (int val : valWithOrder)
             valQueue.add(val);
         return GenSubBTreePre(valQueue);
     }
 
-    public static TreeNode GenSubBTreePre(Queue<Integer> valQueue) {
+    private static TreeNode GenSubBTreePre(Queue<Integer> valQueue) {
         if (valQueue.isEmpty())
             return null;
         int val = valQueue.remove();
@@ -83,7 +83,7 @@ public class TreeNode {
      * </p>
      * valLayer 按每层输入，空值用TreeNode.LEEF表示
      */
-    public static TreeNode GenBTree(int[] valLayer) {
+    public static TreeNode GenBTreeByLayer(int[] valLayer) {
         int len = valLayer.length;
         long depth = Math.round(Math.log10(len + 1) / Math.log10(2));
         if (len == 0)
@@ -94,7 +94,7 @@ public class TreeNode {
         return root;
     }
 
-    public static TreeNode GenSubBTree(int[] valList, int currIndex, long currDepth, long depth) {
+    private static TreeNode GenSubBTree(int[] valList, int currIndex, long currDepth, long depth) {
         if (currDepth == depth || valList[currIndex] == LEEF)
             return null;
         /*
@@ -113,12 +113,12 @@ public class TreeNode {
         return currNode;
     }
 
-    public static void main(String[] args) {
-        // int[] valList = { 4, 2, 1, LEEF, 5, LEEF, LEEF, LEEF, 7, 6, LEEF, 3, LEEF,
-        // LEEF, LEEF };
-        // TreeNode root = GenBTree(valList,"PreOrder");
-        int[] valLayer = { 4, 2, 7, LEEF, 3, 6, LEEF };
-        TreeNode root = GenBTree(valLayer);
-        System.out.println(root.val);
-    }
+//    public static void main(String[] args) {
+//        // int[] valList = { 4, 2, 1, LEEF, 5, LEEF, LEEF, LEEF, 7, 6, LEEF, 3, LEEF,
+//        // LEEF, LEEF };
+//        // TreeNode root = GenBTree(valList,"PreOrder");
+//        int[] valLayer = { 4, 2, 7, LEEF, 3, 6, LEEF };
+//        TreeNode root = GenBTreeByLayer(valLayer);
+//        System.out.println(root.val);
+//    }
 }
