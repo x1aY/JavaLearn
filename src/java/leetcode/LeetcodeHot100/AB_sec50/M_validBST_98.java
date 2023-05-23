@@ -10,7 +10,7 @@ public class M_validBST_98 {
     public static void main(String[] args) {
         M_validBST_98 ans = new M_validBST_98();
         int l = TreeNode.LEEF;
-        TreeNode root = TreeNode.GenBTree(new int[] { 5, 4, 6, l, l, 3, 7 });
+        TreeNode root = TreeNode.GenTree(new int[] { 5, 4, 6, l, l, 3, 7 });
         System.out.println(ans.isValidBST(root));
     }
 

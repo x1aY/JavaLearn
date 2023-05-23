@@ -12,7 +12,7 @@ public class L_InorderTravel_94 {
     public static void main(String[] args) {
         L_InorderTravel_94 ans = new L_InorderTravel_94();
         int n = TreeNode.LEEF;
-        TreeNode root = TreeNode.GenBTree(new int[] { 1, n, 2, n, n, 3, n });
+        TreeNode root = TreeNode.GenTree(new int[] { 1, n, 2, n, n, 3, n });
         ans.inorderTraversal(root);
     }
 
